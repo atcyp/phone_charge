@@ -1,0 +1,132 @@
+<?php //////////////////////////////////////////////////////////////////////
+//PHP上传文件的常用文件类型
+//原创：oophper.com  2010.04.22
+//没什么技术含量，纯属体力活，不过以后就不用为php上传文件类型发愁了 - -！
+//////////////////////////////////////////////////////////////////////
+//因为上传文件太多,需要设置php.ini中的 //post_max_size = 8M        我改为1000 。临时测试，待会儿改过来就行了 //upload_max_filesize = 2M   同上。set_time_limit(0);//设置页面处理时间，文件太多我这里改为0：无限时间?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>程序生活网-PHP上传文件的常用文件类型</title>
+<style type="text/css" >
+.title{
+ height:30px;
+ margin-bottom:15px;
+ padding-left:150px;
+ text-align:left;
+ border-bottom:1px #666 solid;
+}
+.lbl{
+ width:320px;
+ float:left;
+}
+.upfile{
+ height:30px;
+ width:500px;
+ display:block;
+}
+</style>
+</head>
+<?php
+if(isset($_POST['submit'])){
+
+ $error = $_FILES['upf']['error'];
+ $name = $_FILES['upf']['name'];
+ $type = $_FILES['upf']['type'];
+
+ $showhtml = "<table algin=center border='1' cellpadding='1' cellspacing='1' bordercolor='#000000' >
+    <thead><tr>
+    <th>id</th><th>后缀名</th><th>php识别出的文件类型</th>
+    </tr></thead>
+    <tbody>";
+
+ //遍历输出
+ foreach($error as $key=>$err){
+  $showhtml .= "";
+  $extname = end(explode('.',$name[$key]));  
+  if($err>0){
+   $showhtml .= "<tr><td>".$key."</td><td>".$name[$key]."---上传出错".$err."</td><td></td></tr>";
+  }else{
+   $showhtml .= "<tr><td>".$key."</td><td>".$extname."</td><td>".$type[$key]."</td></tr>";
+  }
+ }//end foreach
+ $showhtml .= "</tbody></table>";
+
+ echo $showhtml; exit;
+}
+
+?>
+<body>
+<form method="post" action="" enctype="multipart/form-data">
+<input type="hidden" name="max_file_size" value="1048576000">
+
+<div><h2>php上传图片文件</h2></div>
+
+<label>php上传gif图片文件：.gif</label><input type="file" name="upf[]"  /><br />
+<label>php上传jpg图片：.jpg</label><input type="file" name="upf[]"  /><br />
+<label>php上传png图片：.png</label><input type="file" name="upf[]"  /><br />
+<label>php上传bmp图片：.bmp</label><input type="file" name="upf[]"  /><br />
+<label>php上传psd图片：.psd</label><input type="file" name="upf[]"  /><br />
+<label>php上传ico图片文件：.ico</label><input type="file" name="upf[]"  /><br />
+
+<div><h2>php上传压缩文件</h2></div>
+
+<label>php上传rar压缩文件：.rar</label><input type="file" name="upf[]"  /><br />
+<label>php上传zip压缩文件：.zip</label><input type="file" name="upf[]"  /><br />
+<label>php上传7z压缩文件：.7z</label><input type="file" name="upf[]"  /><br />
+
+<div><h2>php上传可执行文件</h2></div>
+
+<label>php上传exe可执行文件：.exe</label><input type="file" name="upf[]"  /><br />
+
+<div><h2>php上传视频文件,音乐文件,歌词文件</h2></div>
+
+<label>php上传avi视频文件：.avi</label><input type="file" name="upf[]"  /><br />
+<label>php上传rmvb视频文件：.rmvb</label><input type="file" name="upf[]"  /><br />
+<label>php上传3gp视频文件：.3gp</label><input type="file" name="upf[]"  /><br />
+<label>php上传flv视频文件：.flv</label><input type="file" name="upf[]"  /><br />
+<label>php上传mp3音乐文件：.mp3</label><input type="file" name="upf[]"  /><br />
+<label>php上传wav音乐文件：.wav</label><input type="file" name="upf[]"  /><br />
+<label>php上传krc歌词文件：.krc</label><input type="file" name="upf[]"  /><br />
+<label>php上传lrc歌词文件：.lrc</label><input type="file" name="upf[]"  /><br />
+
+<div><h2>php上传文本文件和文档文件</h2></div>
+
+<label>php上传text文本文件：.txt</label><input type="file" name="upf[]"  /><br />
+<label>php上传word文档文件: .doc</label><input type="file" name="upf[]"  /><br />
+<label>php上传Excel文档: .xls</label><input type="file" name="upf[]"  /><br />
+<label>php上传ppt幻灯片文件：.ppt</label><input type="file" name="upf[]"  /><br />
+<label>php上传pdf文件：.pdf</label><input type="file" name="upf[]"  /><br />
+<label>php上传chm文件：.chm</label><input type="file" name="upf[]"  /><br />
+
+<div><h2>php上传数据库文件</h2></div>
+
+<label>php上传Access数据库文件：.mdb</label><input type="file" name="upf[]"  /><br />
+<label>php上传mysql数据库文件: .sql</label><input type="file" name="upf[]"  /><br />
+<label>php上传con数据库文件: .con</label><input type="file" name="upf[]"  /><br />
+<label>php上传log日志文件: .log</label><input type="file" name="upf[]"  /><br />
+<label>php上传dat数据文件： .dat</label><input type="file" name="upf[]"  /><br />
+
+<div><h2>php上传网页文件,脚本文件,字体文件</h2></div>
+
+<label>php上传ini配置文件： .ini</label><input type="file" name="upf[]"  /><br />
+<label>php上传PHP文件上传： .php</label><input type="file" name="upf[]"  /><br />
+<label>php上传html网页文件： .html</label><input type="file" name="upf[]"  /><br />
+<label>php上传htm网页文件： .htm</label><input type="file" name="upf[]"  /><br />
+<label>php上传ttf字体文件： .ttf</label><input type="file" name="upf[]"  /><br />
+<label>php上传fon字体文件：.fon</label><input type="file" name="upf[]"  /><br />
+<label>php上传js脚本文件： .js</label><input type="file" name="upf[]"  /><br />
+<label>php上传xml文件： .xml</label><input type="file" name="upf[]"  /><br />
+
+<div><h2>php上传其他文件</h2></div>
+
+<label>php上传dll文件： .dll</label><input type="file" name="upf[]"  /><br />
+<label>php上传class类文件： .class</label><input type="file" name="upf[]"  /><br />
+
+<input type="submit" name="submit" value="提交检测文件类型" />
+</form>
+<a href="http://www.oophper.com">程序生活网  www.oophper.com</a>
+</body>
+</html>

@@ -1,0 +1,1779 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+
+	<title>中国电信网上营业厅·黑龙江|为您提供电信业务办理、充值交费、费用查询等全方位电子自助服务</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+	<link href="/service/css/jxcard.css"
+		rel="stylesheet" type="text/css">
+	
+	<link href="/service/css/style.css" rel="stylesheet" type="text/css">
+	<link type="text/css" rel="stylesheet" href="/service/css/step.css" />
+	<script language="JavaScript" src="js/calendar.js"></script>
+<script language="JavaScript" src="js/jquery.blockUI.js"></script>	
+	<script language="javascript" src="js/trmouse.js"></script>
+	<SCRIPT language="JavaScript" src="js/lib.js"></SCRIPT>
+	<SCRIPT language="javascript" src="/service/js/TableSorterV2.js"></SCRIPT>
+    <SCRIPT language="JavaScript1.2" src="/service/js/jquery.js"></SCRIPT>
+	<SCRIPT LANGUAGE=JAVASCRIPT>
+	 var totalRecordNum = 43;
+ var perPageRecordNum =30;
+ var $j = jQuery.noConflict();
+var ikk = 0 ;
+          var IsRoot = "cnet";
+    </SCRIPT>
+
+	
+	<STYLE>
+.comtitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 150%; COLOR: #ff6600
+}
+.sort-table THEAD {
+	BACKGROUND: buttonface
+}
+.sort-table THEAD TD {
+	BORDER-RIGHT: buttonshadow 1px solid; BORDER-TOP: buttonhighlight 1px solid; BORDER-LEFT: buttonhighlight 1px solid; CURSOR: default; BORDER-BOTTOM: buttonshadow 1px solid
+}
+.sort-table THEAD TD:active {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 6px; BORDER-LEFT-COLOR: buttonshadow; BORDER-BOTTOM-COLOR: buttonhighlight; PADDING-BOTTOM: 1px; BORDER-TOP-COLOR: buttonshadow; PADDING-TOP: 3px; BORDER-RIGHT-COLOR: buttonhighlight
+}
+.descending {
+	BACKGROUND-IMAGE: url(images/downsimple.png)
+}
+.ascending {
+	BACKGROUND-IMAGE: url(images/upsimple.png)
+}
+</STYLE>
+</head>
+
+<script language="JavaScript">
+
+function doSubmit(){
+document.dateSelectForm.submit();
+}
+
+var $j =jQuery.noConflict(); 
+
+</script>
+<body style="margin:0" onLoad="javascript:initialPageShow();">
+<!--登录页面_头部 begin -->
+	<div class="step_pagewidth2 step_head"><img src="/service/images/step/step_top.jpg" width="1000" height="6"  /></div>
+	<!--登录页面_头部_导航 begin-->
+	<div class="step_banner1 step_pagewidth2">
+
+	 
+		
+		
+		
+		
+		
+			<div class="step_banner_body1 step_banner_bgP">
+				<ul> <li class="step_banner_hoverC">短信详单</li> </ul>
+			</div>
+		
+		
+		
+		
+		
+   
+	</div>
+	<!--登录页面_头部_导航 end-->
+	<!--登录页面_头部样式 end -->
+	
+<div class="step_pagewidth2 step_pagebody1">
+
+
+ 	<table width="99%" border="0" align="center" cellpadding="0"
+		cellspacing="0">
+		<tr>
+			<td width="1" bgcolor="e5e5e5"></td>
+			<td height="1" bgcolor="e5e5e5"></td>
+			<td width="1" bgcolor="e5e5e5"></td>
+		</tr>
+		<tr>
+			<td width="1" bgcolor="e5e5e5"></td>
+			<td>
+				<table width="100%" border="0" align="center" cellpadding="0"
+					cellspacing="0">
+					<tr>
+						
+						<td width="100%" valign="top">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0"
+								align="center">
+								<tr>
+									<td bgcolor="#FFFFFF">
+										<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+											<tr>
+												<td>
+													<table width="100%" border="0" cellspacing="0"
+														cellpadding="0">
+														
+														<tr>
+															<td height=10></td>
+														</tr>
+														<tr>
+															<td>
+															<form name="CqdQueryForm" method="post" action="/hljct/cqd/queryDetailList.do">
+																<table width="100%" border="0" cellpadding="3" cellspacing="1">
+																	<tr bgcolor="#e5e5e5">
+																		
+																		<td align="right" bgcolor="#ffffff" width=90>
+																			总记录数:
+																		</td>
+																		<td align="left" bgcolor="#ffffff">
+																			43
+																		</td>
+																		<td align="right" bgcolor="#ffffff" width=90>
+																			
+																		</td>
+																		<td align="left" bgcolor="#ffffff">
+																		
+																		</td>
+																		 <td align="left" bgcolor="#ffffff">
+																        	<input type="button" class="orangebtn_s" value="关 闭" onclick="top.window.close()" />
+																         </td>
+																	</tr>
+																</table>
+
+																<table id="tb1"  width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#e5e5e5" class="sort-table">
+
+																	<thead align="center">
+																		<tr>
+																			 <td width="3%" align="center" >序号</td>    
+											                                     
+											                                    <td width="6%" align="center">主叫号码  </td>   
+																			  
+											                                    <td width="6%" align="center">被叫号码</td>
+											                                     
+											                                    <td width="6%" align="center">开始时间</td>
+											                                    <td width="4%" align="center">时长</td> 
+											                                    <!--<td width="4%" align="center">时长</td>  -->    
+											                                    <!-- <td width="9%" align="center">话单类型</td>  -->
+											                                    <td width="4%" align="center">费用(分)</td> 
+											                                     
+											                                    <td width="4%" align="center">呼叫方式</td> 
+											                                       
+											                                    <td width="4%" align="center">附加费(分)</td> 
+											                                     
+											                      				 
+											                                  
+											                                  
+																		</tr>
+																	</thead>
+																		
+										                                  
+										                                   
+										                                   <tr  id="row1" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">1</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18345140513</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130903082927);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row2" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">2</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18345140513</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130903082929);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row3" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">3</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13654581448</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130903160003);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row4" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">4</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18988487486</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130912225904);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网内短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row5" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">5</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130914000836);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row6" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">6</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130914001402);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row7" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">7</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130914001530);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row8" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">8</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130914001650);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row9" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">9</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130914002919);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row10" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">10</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13936284653</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130914071016);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row11" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">11</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">14789800135</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919135134);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row12" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">12</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18045625470</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181015);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网内短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row13" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">13</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">15626192952</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181015);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row14" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">14</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">15887137335</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181017);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row15" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">15</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18382633553</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181025);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row16" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">16</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18988487486</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181028);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网内短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row17" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">17</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18669052034</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181029);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row18" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">18</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13796079532</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181036);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row19" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">19</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18795991683</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181039);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row20" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">20</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18710405946</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181041);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row21" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">21</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13936284653</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181044);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row22" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">22</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">15087159611</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181100);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row23" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">23</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13778569574</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181104);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row24" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">24</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181110);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row25" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">25</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13644569512</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181116);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row26" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">26</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">15145117814</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181118);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row27" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">27</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13799335656</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130919181203);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row28" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">28</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">15974802130</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130922120024);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row29" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">29</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">15974802130</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130922120136);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row30" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">30</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13654581448</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130924152347);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row31" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">31</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13644569512</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130925190758);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row32" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">32</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13644569512</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130925193357);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row33" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">33</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13644569512</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130925203943);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row34" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">34</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13644569512</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130926095204);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row35" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">35</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">13654581448</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130926153938);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row36" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">36</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">15124558419</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130926155907);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row37" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">37</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130928154022);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row38" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">38</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130928154122);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row39" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">39</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130928164609);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row40" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">40</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130928164858);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row41" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">41</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130928165118);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row42" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">42</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130928165732);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                   <tr  id="row43" style="display:none"> 
+												                                <td bgcolor="#ffffff" align="center">43</td>   
+										                                   		  
+																				<td bgcolor="#ffffff" align="center">18045628390 </td>  
+																				
+																				<td bgcolor="#ffffff" align="center">18744018627</td>
+																				
+																				  <script>
+																				  	var begtime = new String(20130928172125);
+																				  	var fmtyear = begtime.substr(0,4);
+																				  	var fmtmonth = begtime.substr(4,2);
+																				  	var fmtdate = begtime.substr(6,2);
+																				  	var fmthh = begtime.substr(8,2);
+																				  	var fmtmm = begtime.substr(10,2);
+																				  	var fmtss = begtime.substr(12,2);
+																				  </script>   
+																				<td bgcolor="#ffffff" align="center"><script>document.write(fmtyear);document.write("-");document.write(fmtmonth);document.write("-");document.write(fmtdate);document.write(" ");document.write(fmthh);document.write(":");document.write(fmtmm);document.write(":");document.write(fmtss);</script></td> 
+																				<td bgcolor="#ffffff" align="center">0秒</td> 
+																				 <!--<td bgcolor="#ffffff" align="center">C网网间短信点对点上行事件</td>   -->  
+																				<td bgcolor="#ffffff" align="center">0</td> 
+																				
+																				<td bgcolor="#ffffff" align="center">主叫</td> 
+																				 
+																				<td bgcolor="#ffffff" align="center">0</td>    
+											                                    
+											                                    
+											                                	
+											                                	
+											                                 </tr>
+										                                     
+										                                  
+										                                  
+										                                 
+																	
+<script language="javascript">
+<!--
+//全局变量
+
+var currentPageNumber = 0;//当前页号
+var lastPageNumber;
+var totalRecordNum;
+if(totalRecordNum==0)
+{
+	currentPageNumber = 0;
+}
+//计算总页数
+var totalPageNumber = Math.ceil(totalRecordNum/perPageRecordNum);
+//if(totalRecordNum%perPageRecordNum!=0)//如果除不尽
+//{
+	//+1并去掉小数
+	//totalPageNumber = Math.ceil(x);
+//}
+var startShowPage ;//开始显示页记录号数
+var endShowPage ;//结束显示页记录号数
+
+function keyDown() {
+  if(event.keyCode == 13){
+    goToPage();
+  }
+}
+//跳到指定页
+function goToPage()
+{
+   if(totalRecordNum != 0)
+   {
+        lastPageNumber = currentPageNumber;
+		//var pageNo = document.formTurnPage.curPageNo.value;
+		var pageNo =document.getElementById("curPageNo").value;
+		//校验页号
+		if((/[^0-9]/gi.test(pageNo)) | pageNo.length==0)
+	    {
+			alert("页数必须为数字!");
+			return;
+	    }
+	    else
+	    {
+	       if((pageNo > totalPageNumber)|(pageNo < 1))
+	      {
+	        alert("您所输入的页数超出范围！");
+			return;
+	      }
+	    }
+		//跳转到指定页
+		 startShowPage = (pageNo-1)*perPageRecordNum;
+		 endShowPage  = pageNo*perPageRecordNum;
+		 currentPageNumber = parseInt(pageNo);
+		 exeShowPage(); 
+		 //curPageNo.innerHTML = currentPageNumber;
+		 //document.all.curPageNo.value=currentPageNumber;
+		 //totalPageNo.innerHTML = totalPageNumber;	
+	}
+	else
+	{
+		//alert("没有查询到相关结果!");
+	}
+}
+//跳转到第一页
+function goToFirstPage()
+{
+   if (currentPageNumber == 1) {
+     return;
+   }
+   if(totalRecordNum != 0)
+   {
+        lastPageNumber = currentPageNumber;
+		startShowPage = 0*perPageRecordNum;
+		endShowPage  = 1*perPageRecordNum;
+		currentPageNumber = 1;
+		exeShowPage(); 
+		//curPageNo.innerHTML = currentPageNumber;
+		
+		document.getElementById("curPageNo").value = "1";
+		//document.formTurnPage.curPageNo.value = "1";
+		//totalPageNo.innerHTML = totalPageNumber;
+	}
+	else
+	{
+		//alert("没有查询到相关结果!");
+	}
+
+}
+function goToLastPage()
+{
+   if (currentPageNumber == totalPageNumber) {
+     return;
+   }
+   if(totalRecordNum != 0)
+   {
+        lastPageNumber = currentPageNumber;
+		if(totalRecordNum%perPageRecordNum==0)//除尽
+		{
+			var tempVal = totalRecordNum/perPageRecordNum;
+		  	startShowPage = (tempVal-1)*perPageRecordNum;
+		 	endShowPage  = tempVal*perPageRecordNum;
+		}
+		else
+		{	
+			  var tempVal = totalRecordNum%perPageRecordNum;//得到余数,就是最后一页要显示的记录条数
+			  startShowPage = totalRecordNum-tempVal;
+		 	  endShowPage  = totalRecordNum;
+		}
+		currentPageNumber=totalPageNumber;
+		exeShowPage();	
+		//curPageNo.innerHTML = currentPageNumber;
+		//document.formTurnPage.curPageNo.value = currentPageNumber;
+		document.getElementById("curPageNo").value = currentPageNumber;
+		//totalPageNo.innerHTML = totalPageNumber;
+	}
+	else
+	{
+		//alert("没有查询到相关结果!");
+	}
+
+}
+function goToNextPage()
+{
+   if(totalRecordNum != 0)
+   {
+	   if(currentPageNumber< totalPageNumber)
+	   {
+	        lastPageNumber = currentPageNumber;
+			currentPageNumber = currentPageNumber+1
+			startShowPage = (currentPageNumber-1)*perPageRecordNum;
+			endShowPage  = currentPageNumber*perPageRecordNum;
+			exeShowPage();
+			//curPageNo.innerHTML = currentPageNumber;
+			document.getElementById("curPageNo").value = currentPageNumber;
+			//document.formTurnPage.curPageNo.value = currentPageNumber;
+			//totalPageNo.innerHTML = totalPageNumber;
+		}
+		else
+		{
+			alert("当前页已经是最后一页了!");
+		}	
+	}
+	else
+	{
+		//alert("没有查询到相关结果!");
+	}
+}
+function goToBeforePage()
+{
+   if(totalRecordNum != 0)
+   {
+     if(currentPageNumber>1)
+     {
+            lastPageNumber = currentPageNumber;
+			currentPageNumber = currentPageNumber-1;
+			startShowPage = (currentPageNumber-1)*perPageRecordNum;
+			endShowPage  = currentPageNumber*perPageRecordNum;
+			exeShowPage();	
+			//curPageNo.innerHTML = currentPageNumber;
+			document.getElementById("curPageNo").value = currentPageNumber;
+			//totalPageNo.innerHTML = totalPageNumber;
+		}
+		else
+		{
+			alert("当前页已经是第一页了!");
+		}	
+	}
+	else
+	{
+		//alert("没有查询到相关结果!");
+	}
+}
+
+function exeShowPage()
+{
+     if (currentPageNumber == lastPageNumber) {
+       return;
+     }
+	 for (var i=startShowPage+1; i<=endShowPage; i++) {
+	   if (i <= totalRecordNum) {
+	     document.getElementById("row"+i).style.display="";
+	   }
+	 }
+	 if (lastPageNumber > 0) {
+	   for (var i=(lastPageNumber-1)*perPageRecordNum+1; i<=lastPageNumber*perPageRecordNum; i++) {
+	     if (i <= totalRecordNum) {
+		   document.getElementById("row"+i).style.display="none";
+	     }
+	   }
+	 }
+}
+
+function initialPageShow()
+{
+	//有查询结果
+   if(totalRecordNum != 0)
+   {
+		goToFirstPage();//显示第一页
+	}
+	//显示页号信息
+	//curPageNo.innerHTML = currentPageNumber;
+	//document.a.elements["b"].value=currentPageNumber
+	totalPageNo.innerHTML = totalPageNumber;
+}
+//-->
+</script>
+<table border="0" cellpadding="3" cellspacing="3" align="center">
+  <tr><form name="formTurnPage" id="formTurnPage" onSubmit="return false;">
+    <td valign="middle"><a onClick="javascript:goToFirstPage();" style="cursor:hand;"><img src="/service/images/page_top.gif" width="9" height="9" border="0"></a></td>
+    <td height="30" valign="middle"> <div align="left"><a onClick="javascript:goToFirstPage();" style="cursor:hand;" class="style1">第一页</a></div></td>
+    <td valign="middle"><a onClick="javascript:goToBeforePage();" style="cursor:hand;"><img src="/service/images/page_prev.gif" width="9" height="9" border="0"></a></td>
+    <td valign="middle"><div align="left"><a onClick="javascript:goToBeforePage();" style="cursor:hand;" class="style1">上一页</a></div></td>
+    <td  valign="middle">
+         当前第</td><td  valign="middle"><input type="text" name="curPageNo" value="1" size="3" height="10" onkeydown="javascript:keyDown();" /></td><td  valign="middle">页/总计<span id="totalPageNo"></span>页
+   </td>
+    <td valign="middle"><div align="right"><a onClick="javascript:goToNextPage();" style="cursor:hand;" class="style1">下一页</a></div></td>
+    <td valign="middle"><div align="center"><a onClick="javascript:goToNextPage();" style="cursor:hand;"><img src="/service/images/page_next.gif" width="9" height="9"></a></div></td>
+    <td valign="middle"><div align="right"><a onClick="javascript:goToLastPage();" style="cursor:hand;" class="style1">最后一页</a></div></td>
+    <td valign="middle"><div align="center"><a onClick="javascript:goToLastPage();" style="cursor:hand;"><img src="/service/images/page_end.gif" width="9" height="9" border="0"></a></div></td>
+    </form>
+  </tr>
+</table>
+
+																</table>
+																  <input type="hidden" name="selectedDate" value="201309"/>
+																  <input type="hidden" name="startDate" value=""/>
+																  <input type="hidden" name="endDate" value=""/>
+																  <input type="hidden" name="seledType" value="5"/>
+																  <input type="hidden" name="selectType" value="1"/>
+																  <input type="hidden" name="callType" value="3"/>
+																  <input type="hidden" name="pageSize" value=""/>
+																  <input type="hidden" name="pageNo" value=""/>
+																</form>
+															<div align="right">
+															
+															</td>
+														</tr>
+														<tr>
+															<td height=15></td>
+														</tr>
+														<tr>
+
+
+														</tr>
+													</table>
+
+
+
+
+													<table width="100%" border="0" align="center"
+														cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+														<tr>
+															<td width="100%" bgcolor="#FFFFFF" height="20">
+																<div id="sending" align="center"
+																	style="position:absolute; top:46%; left:430px; z-index:0; visibility:hidden">
+																	<table width="300" cellpadding="0" cellspacing="0"
+																		bgcolor="#FFFFFF" style="border:1px solid #709DFC ;">
+																		<tr>
+																			<td>
+																				<table width="300" height="50" cellspacing="0"
+																					border="0" align="center">
+																					<tr height="50">
+																						<td align="center">
+																							<img src="images/shade3.gif" width="22">
+																						</td>
+																						<td style="font-size:12px; color: #0066CC"
+																							align="left">
+																							&nbsp;系统正在处理中，请耐心等待......
+																						</td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</td>
+														</tr>
+														<tr>
+														</tr>
+													</table>
+													<!--去掉注掉的html文本 -->
+
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="1" bgcolor="e5e5e5"></td>
+		</tr>
+		<tr>
+			<td width="1" bgcolor="e5e5e5"></td>
+			<td height="1" bgcolor="e5e5e5"></td>
+			<td width="1" bgcolor="e5e5e5"></td>
+		</tr>
+	</table>
+
+</div>
+
+<!--登录页面_底部 begin -->
+<div class="step_pagewidth2 step_foot"><img src="/service/images/step/step_bottom.jpg" width="1000" height="6" /></div>
+<!--登录页面_底部 end -->   
+ 
+</body>
+</html>
+

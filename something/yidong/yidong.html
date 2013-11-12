@@ -1,0 +1,1784 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="Keywords" content="资费专区,中国移动,中国移动通信,中移动,中国移动通信集团公司,全球通,神州行,动感地带,政企客户,手机,gotone,easyown,m-zone,infowin" />
+<meta name="Description" content="资费专区，是中国移动通信提供给客户进行业务受理、营销推广、信息查询的网上自助平台。“网上营业厅”分为全球通、动感地带、神州行、政企客户4大客户品牌的自助网上营业厅。" />
+<title>资费专区_中国移动通信</title>
+<link  rel="stylesheet" type="text/css" media="all" href="/css/rate/rate.css"/>
+<link  rel="stylesheet" type="text/css" media="all" href="/css/rate/tipswindown.css"/>
+<script type="text/javascript" src="/js10086/rate/jquery_min.js"></script>
+<script type="text/javascript" src="/js10086/rate/tipswindown.js"></script>
+<script type="text/javascript" src="/head/geneal_head.js"></script>
+<script type="text/javascript" src="/tail/geneal_tail.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+    var cityflag= "00";
+    if(cityflag=="11"){
+        var str = "<p>用户您好：</p> <p class='dotted'>您目前的归属地是<b></b>省、市</p><p>请选择您所在城市</p>"
+        tipsWindown(str,"id:null","380","100","true","","true","id");
+        if(document.getElementById("windown-content").getElementsByTagName("div")[0]){
+            var win=document.getElementById("windown-content");
+            win.removeChild(win.getElementsByTagName("div")[0]);
+            $("#windown-content").css("width","310px");
+        };
+    }
+    
+    var citys=document.getElementById("citys");
+    var spans=citys.getElementsByTagName("span");
+    for(var i=0,sLen=spans.length;i<sLen;i++){
+        spans[i].onmouseover=function(){
+            this.style.color="#007bc7";
+            this.style.textDecoration="underline";
+        }
+        spans[i].onmouseout=function(){
+            this.style.color="#4e4e4e";
+            this.style.textDecoration="none";
+        }
+    }
+}
+function optCity(){
+    var optCity=document.getElementById("optCity");
+    if(optCity.style.display=="none"){
+        optCity.style.display="block";
+    }else{
+        optCity.style.display="none";
+    }
+}
+    function getCity(provId,obj){
+        var top=$(obj).offset().top;
+        var left=$(obj).offset().left;
+        var provObject=document.getElementById(provId);
+        if(provObject.style.display=="none"){
+            $(".cityList").css("display","none");
+            provObject.style.display="block";
+            if(left<900){
+                provObject.style.left=(left-390)+"px";
+            }else{
+                provObject.style.left=(left-550)+"px";
+            }
+            provObject.style.top=(top-230)+"px";
+        }
+        if (window.event) {  
+            event.cancelBubble = true;  
+        }else if (evt){  
+            evt.stopPropagation();  
+        } 
+    }
+    function getRate(pack_id,obj){
+        var urls="getRate.jsp?pack_id="+pack_id;
+        $.ajax({
+          url:urls,
+          success: function(data) {
+            //$('.result').html(data);
+            if($.trim(data)!=""){
+                obj.innerHTML=$.trim(data);
+            }else{
+                
+            }
+          }
+        });
+    }
+
+var g_imgTabWay = "/images/dynamic/rate/";
+function g(objectId) {
+    if (document.getElementById && document.getElementById(objectId)) {
+        return document.getElementById(objectId)
+    } else if (document.all && document.all[objectId]) {
+        return document.all[objectId]
+    } else if (document.layers && document.layers[objectId]) {
+        return document.layers[objectId]
+    } else {
+        return false
+    }
+}
+function HoverTab(tabtag,contentArea,tab,tabset,imgLeft,imgRight) {
+    var $ = g(tabtag).getElementsByTagName("li"),
+    A = g(contentArea).getElementsByTagName("dt");
+    for (var _ = 0; _ < $.length; _++)(function(_) {
+        $[_].onclick = function() {
+            for (var H = 0; H < $.length; H++) {
+                $[H].className = "normaltab";
+                A[H].className = "undis"
+            }
+            $[_].className = "hovertab";
+            A[_].className = "dis";
+            var B = 0,
+            F = g(tab),
+            E = g(tabset),
+            D = E.clientWidth,
+            G = F.style.left.substr(0, F.style.left.length - 2);
+            for (var C = 0; C < _; C++) B += $[C].clientWidth + 2;
+            if ( - G > B) F.style.left = -B + "px";
+            if (( - G + D) < (B + $[_].clientWidth + 50)) F.style.left = -(B - D + $[_].clientWidth + 50) + "px"
+        }
+    })(_)
+    isOverstep(tabtag,tab,tabset,imgLeft,imgRight);
+}
+function isOverstep(tabtag,tab,tabset,imgLeft,imgRight) {
+    var D = g(imgRight),
+    E = g(imgLeft),
+    _ = g(tabtag).getElementsByTagName("li"),
+    A = 0;
+    for (var $ = 0; $ < _.length; $++) A += _[$].clientWidth + 2;
+    var C = g(tabset),
+    B = C.clientWidth;
+    if (A > B) {
+        g(tab).style.paddingLeft = 24 + "px";
+        g(tab).style.left = 4 + "px";
+        E.style.display = "block";
+        E.setAttribute("src", g_imgTabWay + "btn_left_on.gif");
+        D.style.display = "block";
+        D.setAttribute("src", g_imgTabWay + "btn_right.gif")
+    }
+}
+var g_leftPosition = 0;
+function BtnMoveLeft(xx,tabtag,tab,tabset,imgLeft,imgRight) {
+    var $ = g(imgRight),
+    C = g(imgLeft),
+    E = g(tabtag).getElementsByTagName("li"),
+    D = 0;
+    for (var G = 0; G < E.length; G++) D += E[G].clientWidth + 2;
+    var A = g(tabset),
+    B = A.clientWidth,
+    _ = g(tab),
+    H = parseInt(_.style.left.substr(0, _.style.left.length - 2));
+    if (D < B) {
+        _.style.paddingLeft = 0 + "px";
+        $.style.display = "none";
+        C.style.display = "none";
+        _.style.left = 0 + "px"
+    } else if (B < D && ( - H) > 80) {
+        _.style.paddingLeft = 24 + "px";
+        $.style.display = "block";
+        C.style.display = "block";
+        var F;
+        if (g_leftPosition < 30) {
+            g_leftPosition++;
+            F = setTimeout(function() {
+                _.style.left = H + 5 + "px";
+                BtnMoveLeft(xx,tabtag,tab,tabset,imgLeft,imgRight)
+            },
+            300 / 100)
+        } else {
+            g_leftPosition = 0;
+            clearTimeout(F)
+        }
+        C.setAttribute("src", g_imgTabWay + "btn_left_on.gif");
+        $.setAttribute("src", g_imgTabWay + "btn_right_on.gif")
+    } else {
+        _.style.left = 4 + "px";
+        C.setAttribute("src", g_imgTabWay + "btn_left.gif")
+    }
+    
+}
+function BtnMoveRight(B,tabtag,tab,tabset,imgLeft,imgRight) {
+    var I = g(imgRight),
+    _ = g(imgLeft),
+    F = g(tabtag).getElementsByTagName("li"),
+    $ = 0;
+    for (var D = 0; D < F.length; D++) $ += F[D].clientWidth + 2;
+    var G = g(tabset),
+    H = G.clientWidth,
+    A = g(tab),
+    C = parseInt(A.style.left.substr(0, A.style.left.length - 2));
+    if ($ < H) {
+        A.style.paddingLeft = 0 + "px";
+        A.style.left = 0 + "px";
+        _.style.display = "none";
+        I.style.display = "none"
+    } else if (( - C + H) < $) {
+        A.style.paddingLeft = 24 + "px";
+        I.style.display = "block";
+        _.style.display = "block";
+        var E;
+        if (g_leftPosition < 30) {
+            g_leftPosition++;
+            E = setTimeout(function() {
+                A.style.left = C - 5 + "px";
+                BtnMoveRight(B,tabtag,tab,tabset,imgLeft,imgRight)
+            },
+            300 / 100)
+        } else {
+            g_leftPosition = 0;
+            clearTimeout(E)
+        }
+        _.setAttribute("src", g_imgTabWay + "btn_left_on.gif");
+        I.setAttribute("src", g_imgTabWay + "btn_right_on.gif")
+    } else {
+        A.style.left = -($ - H + 50);
+        I.setAttribute("src", g_imgTabWay + "btn_right.gif")
+    }
+}   
+
+function optCityList(obj){
+    var parentObj=obj.parentNode;
+    if(parentObj.style.display=="block"){
+        parentObj.style.display="none";
+    }
+    if (window.event) {  
+        event.cancelBubble = true;  
+    }else if (evt){  
+        evt.stopPropagation();  
+    }   
+}
+function subform(){
+    var form1=document.getElementById("form1")
+    form1.action="rate_search.jsp";
+    form1.submit();
+}
+
+function turnTo(cityid,cityflag,brand){
+    var form0=document.getElementById("form0"); 
+    form0.cityid.value = cityid;
+    form0.cityflag.value = cityflag;
+    form0.brand.value = brand;
+    form0.action="rate_index.jsp";
+    form0.submit(); 
+}
+function openForward(urlId){
+    var form2=document.getElementById("form2"); 
+    form2.urlId.value = urlId;
+    form2.action="rate_forward.jsp";
+    form2.submit();
+}
+function openPackDetail(optPackId){
+    var form2=document.getElementById("form2"); 
+    form2.optPackId.value = optPackId;
+    form2.action="opt_pack_details.jsp";
+    form2.submit();
+}
+function openUrl(rateId){
+    var form2=document.getElementById("form2"); 
+    form2.rateId.value = rateId;
+    form2.action="rate_details.jsp";
+    form2.submit();
+}
+</script>
+
+</head>
+
+<body>
+<div id="head"></div>
+<div id="main">
+    
+    <form method="post" id="form2" name="form2" target="_blank">
+        <input id="urlId" name="urlId" type="hidden" />
+        <input id="optPackId" name="optPackId" type="hidden" />
+        <input id="rateId" name="rateId" type="hidden" />
+    </form>
+    <div class="contentArae">
+        <div class="crumbs">
+            <a href="/"><b>首页</b></a> ><a href="#" > 资费专区 </a>
+        </div>
+        <div class="leftArea">
+        
+            <a onclick="turnTo('1000451','','01')" href="#"><img src="/images/dynamic/rate/goton_1.gif" /></a>
+            <a onclick="turnTo('1000451','','03')" href="#"><img src="/images/dynamic/rate/zone_2.gif" /></a>
+            <a onclick="turnTo('1000451','','02')" href="#"><img src="/images/dynamic/rate/shenzhou_2.gif" /></a>
+        
+            
+            
+            <div class="clr8"></div>
+            <a href="http://hl.10086.cn/service/operate/index.html?jid=0000600020002000100020011" target="_blank"><img src="/images/dynamic/rate/zxtc.jpg" alt="自选套餐" width="200" height="78"/></a>
+            
+            <div class="widget">
+                <div class="widgetit">套餐查找</div>
+                <div class="widgetcon pad0">
+                <form method="post" id="form1" name="form1">            
+                    <div class="stit">品牌</div>
+                    <table class="dotted">
+                        <tr>
+                            <td><input name="brand" type="checkbox" value="全球通" /> 全球通</td>
+                            <td><input name="brand" type="checkbox" value="神州行" /> 神州行</td>
+                        </tr>
+                        <tr>
+                            <td><input name="brand" type="checkbox" value="动感地带" /> 动感地带</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div  class="stit">使用情况</div>
+                    <table class="dotted">
+                        <tr>
+                            <td><input name="busiTrend" type="checkbox" value="本地" /> 本地多</td>
+                            <td><input name="busiTrend" type="checkbox" value="长途" /> 长途多</td>
+                        </tr>
+                        <tr>
+                            <td><input name="busiTrend" type="checkbox" value="漫游" /> 漫游多</td>
+                            <td><input name="busiTrend" type="checkbox" value="流量" /> 上网多</td>
+                        </tr>
+                        <tr>
+                            <td><input name="busiTrend" type="checkbox" value="00" /> 不限</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="stit">月消费</div>
+                    <table class="dotted">
+                        <tr>
+                            <td><input name="monUse" type="checkbox" value="0-50" /> 0-50元</td>
+                            <td><input name="monUse" type="checkbox" value="50-100" /> 50-100元</td>
+                        </tr>
+                        <tr>
+                            <td><input name="monUse" type="checkbox" value="100-200" /> 100-200元</td>
+                            <td><input name="monUse" type="checkbox" value="200-300" /> 200-300元</td>
+                        </tr>
+                        <tr>
+                            <td><input name="monUse" type="checkbox" value="000" /> 不限</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <input type="hidden" name="cityid" value="1000451" />
+                    <div class="taC">
+                        <button class="searchBtn" onclick="subform()">查  询</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            
+            <div class="clr8"></div>
+            <a href="http://www.10086.cn/roaming/" target="_blank" title="国际漫游资费"><img src="/images/dynamic/rate/ad_roaming.jpg" alt="国际漫游资费" /></a>
+            <div class="clr8"></div>
+            <a href="http://dati.labs.10086.cn/tariffzone/" target="_blank" title="资费专区问卷调查"><img src="/images/dynamic/rate/W020120621357002862299.jpg" alt="资费专区问卷调查" /></a>
+        </div>
+        
+        <div class="rightArea">
+                <form method="post" id="form0" name="form0">
+                <input id="cityid" name="cityid" type="hidden" />
+                <input id="cityflag" name="cityflag" type="hidden"/>
+                <input id="brand" name="brand" type="hidden"/>              
+                </form>
+            <p class="cityArea">
+                资费套餐=<a href="#conver">话音套餐</a>+<a href="#date">流量套餐</a>+<a href="#busi">数据业务套餐</a>，您可以自由选择，随心组合。<br />
+                目前显示内容为：
+                <a href="#">哈尔滨
+</a>可办理资费业务。查看<a href="javascript:optCity()" >其它城市</a>资费内容。
+                
+                    <a href="rate_index.jsp">返回</a>默认地区。
+                
+            </p>
+            <div class="optcity" id="optCity" style="display:none">
+                <div class="citytitle">请选择你要查看的城市   <div id="windown-close" onclick="optCity()"></div></div>
+                <div class="citys" id="citys">
+                    
+                                        <span><a onclick="turnTo('1000010','00','01')" href="#" id="1000010" >北京</a></span>
+                                    
+                        <span onclick="getCity('200',this)">广东</span>
+                        <div class="cityList" style="display:none"  id="200">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000020','00','01')" href="#" id="1000020" >广州</a>
+                                        
+                                            <a onclick="turnTo('1000660','00','01')" href="#" id="1000660" >汕尾</a>
+                                        
+                                            <a onclick="turnTo('1000662','00','01')" href="#" id="1000662" >阳江</a>
+                                        
+                                            <a onclick="turnTo('1000663','00','01')" href="#" id="1000663" >揭阳</a>
+                                        
+                                            <a onclick="turnTo('1000668','00','01')" href="#" id="1000668" >茂名</a>
+                                        
+                                            <a onclick="turnTo('1000750','00','01')" href="#" id="1000750" >江门</a>
+                                        
+                                            <a onclick="turnTo('1000751','00','01')" href="#" id="1000751" >韶关</a>
+                                        
+                                            <a onclick="turnTo('1000752','00','01')" href="#" id="1000752" >惠州</a>
+                                        
+                                            <a onclick="turnTo('1000753','00','01')" href="#" id="1000753" >梅州</a>
+                                        
+                                            <a onclick="turnTo('1000754','00','01')" href="#" id="1000754" >汕头</a>
+                                        
+                                            <a onclick="turnTo('1000755','00','01')" href="#" id="1000755" >深圳</a>
+                                        
+                                            <a onclick="turnTo('1000756','00','01')" href="#" id="1000756" >珠海</a>
+                                        
+                                            <a onclick="turnTo('1000757','00','01')" href="#" id="1000757" >佛山</a>
+                                        
+                                            <a onclick="turnTo('1000758','00','01')" href="#" id="1000758" >肇庆</a>
+                                        
+                                            <a onclick="turnTo('1000759','00','01')" href="#" id="1000759" >湛江</a>
+                                        
+                                            <a onclick="turnTo('1000760','00','01')" href="#" id="1000760" >中山</a>
+                                        
+                                            <a onclick="turnTo('1000762','00','01')" href="#" id="1000762" >河源</a>
+                                        
+                                            <a onclick="turnTo('1000763','00','01')" href="#" id="1000763" >清远</a>
+                                        
+                                            <a onclick="turnTo('1000766','00','01')" href="#" id="1000766" >云浮</a>
+                                        
+                                            <a onclick="turnTo('1000768','00','01')" href="#" id="1000768" >潮州</a>
+                                        
+                                            <a onclick="turnTo('1000769','00','01')" href="#" id="1000769" >东莞</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                                        <span><a onclick="turnTo('1000021','00','01')" href="#" id="1000021" >上海</a></span>
+                                    
+                                        <span><a onclick="turnTo('1000022','00','01')" href="#" id="1000022" >天津</a></span>
+                                    
+                                        <span><a onclick="turnTo('1000023','00','01')" href="#" id="1000023" >重庆</a></span>
+                                    
+                        <span onclick="getCity('240',this)">辽宁</span>
+                        <div class="cityList" style="display:none"  id="240">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000024','00','01')" href="#" id="1000024" >沈阳</a>
+                                        
+                                            <a onclick="turnTo('1000410','00','01')" href="#" id="1000410" >铁岭</a>
+                                        
+                                            <a onclick="turnTo('1000411','00','01')" href="#" id="1000411" >大连</a>
+                                        
+                                            <a onclick="turnTo('1000412','00','01')" href="#" id="1000412" >鞍山</a>
+                                        
+                                            <a onclick="turnTo('1000413','00','01')" href="#" id="1000413" >抚顺</a>
+                                        
+                                            <a onclick="turnTo('1000414','00','01')" href="#" id="1000414" >本溪</a>
+                                        
+                                            <a onclick="turnTo('1000415','00','01')" href="#" id="1000415" >丹东</a>
+                                        
+                                            <a onclick="turnTo('1000416','00','01')" href="#" id="1000416" >锦州</a>
+                                        
+                                            <a onclick="turnTo('1000417','00','01')" href="#" id="1000417" >营口</a>
+                                        
+                                            <a onclick="turnTo('1000418','00','01')" href="#" id="1000418" >阜新</a>
+                                        
+                                            <a onclick="turnTo('1000419','00','01')" href="#" id="1000419" >辽阳</a>
+                                        
+                                            <a onclick="turnTo('1000421','00','01')" href="#" id="1000421" >朝阳</a>
+                                        
+                                            <a onclick="turnTo('1000427','00','01')" href="#" id="1000427" >盘锦</a>
+                                        
+                                            <a onclick="turnTo('1000429','00','01')" href="#" id="1000429" >葫芦岛</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('250',this)">江苏</span>
+                        <div class="cityList" style="display:none"  id="250">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000025','00','01')" href="#" id="1000025" >南京</a>
+                                        
+                                            <a onclick="turnTo('1000510','00','01')" href="#" id="1000510" >无锡</a>
+                                        
+                                            <a onclick="turnTo('1000511','00','01')" href="#" id="1000511" >镇江</a>
+                                        
+                                            <a onclick="turnTo('1000512','00','01')" href="#" id="1000512" >苏州</a>
+                                        
+                                            <a onclick="turnTo('1000513','00','01')" href="#" id="1000513" >南通</a>
+                                        
+                                            <a onclick="turnTo('1000514','00','01')" href="#" id="1000514" >扬州</a>
+                                        
+                                            <a onclick="turnTo('1000515','00','01')" href="#" id="1000515" >盐城</a>
+                                        
+                                            <a onclick="turnTo('1000516','00','01')" href="#" id="1000516" >徐州</a>
+                                        
+                                            <a onclick="turnTo('1000517','00','01')" href="#" id="1000517" >淮安</a>
+                                        
+                                            <a onclick="turnTo('1000518','00','01')" href="#" id="1000518" >连云港</a>
+                                        
+                                            <a onclick="turnTo('1000519','00','01')" href="#" id="1000519" >常州</a>
+                                        
+                                            <a onclick="turnTo('1000523','00','01')" href="#" id="1000523" >泰州</a>
+                                        
+                                            <a onclick="turnTo('1000527','00','01')" href="#" id="1000527" >宿迁</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('270',this)">湖北</span>
+                        <div class="cityList" style="display:none"  id="270">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000027','00','01')" href="#" id="1000027" >武汉</a>
+                                        
+                                            <a onclick="turnTo('1000710','00','01')" href="#" id="1000710" >襄阳</a>
+                                        
+                                            <a onclick="turnTo('1000711','00','01')" href="#" id="1000711" >鄂州</a>
+                                        
+                                            <a onclick="turnTo('1000712','00','01')" href="#" id="1000712" >孝感</a>
+                                        
+                                            <a onclick="turnTo('1000713','00','01')" href="#" id="1000713" >黄冈</a>
+                                        
+                                            <a onclick="turnTo('1000714','00','01')" href="#" id="1000714" >黄石</a>
+                                        
+                                            <a onclick="turnTo('1000715','00','01')" href="#" id="1000715" >咸宁</a>
+                                        
+                                            <a onclick="turnTo('1000716','00','01')" href="#" id="1000716" >荆州</a>
+                                        
+                                            <a onclick="turnTo('1000717','00','01')" href="#" id="1000717" >宜昌</a>
+                                        
+                                            <a onclick="turnTo('1000718','00','01')" href="#" id="1000718" >恩施</a>
+                                        
+                                            <a onclick="turnTo('1000719','00','01')" href="#" id="1000719" >十堰</a>
+                                        
+                                            <a onclick="turnTo('1000722','00','01')" href="#" id="1000722" >随州</a>
+                                        
+                                            <a onclick="turnTo('1000724','00','01')" href="#" id="1000724" >荆门</a>
+                                        
+                                            <a onclick="turnTo('1000728','00','01')" href="#" id="1000728" >江汉</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('280',this)">四川</span>
+                        <div class="cityList" style="display:none"  id="280">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000028','00','01')" href="#" id="1000028" >成都</a>
+                                        
+                                            <a onclick="turnTo('1000812','00','01')" href="#" id="1000812" >攀枝花</a>
+                                        
+                                            <a onclick="turnTo('1000813','00','01')" href="#" id="1000813" >自贡</a>
+                                        
+                                            <a onclick="turnTo('1000814','00','01')" href="#" id="1000814" >眉山</a>
+                                        
+                                            <a onclick="turnTo('1000815','00','01')" href="#" id="1000815" >资阳</a>
+                                        
+                                            <a onclick="turnTo('1000816','00','01')" href="#" id="1000816" >绵阳</a>
+                                        
+                                            <a onclick="turnTo('1000817','00','01')" href="#" id="1000817" >南充</a>
+                                        
+                                            <a onclick="turnTo('1000818','00','01')" href="#" id="1000818" >达州</a>
+                                        
+                                            <a onclick="turnTo('1000825','00','01')" href="#" id="1000825" >遂宁</a>
+                                        
+                                            <a onclick="turnTo('1000826','00','01')" href="#" id="1000826" >广安</a>
+                                        
+                                            <a onclick="turnTo('1000827','00','01')" href="#" id="1000827" >巴中</a>
+                                        
+                                            <a onclick="turnTo('1000830','00','01')" href="#" id="1000830" >泸州</a>
+                                        
+                                            <a onclick="turnTo('1000831','00','01')" href="#" id="1000831" >宜宾</a>
+                                        
+                                            <a onclick="turnTo('1000832','00','01')" href="#" id="1000832" >内江</a>
+                                        
+                                            <a onclick="turnTo('1000833','00','01')" href="#" id="1000833" >乐山</a>
+                                        
+                                            <a onclick="turnTo('1000834','00','01')" href="#" id="1000834" >凉山</a>
+                                        
+                                            <a onclick="turnTo('1000835','00','01')" href="#" id="1000835" >雅安</a>
+                                        
+                                            <a onclick="turnTo('1000836','00','01')" href="#" id="1000836" >甘孜</a>
+                                        
+                                            <a onclick="turnTo('1000837','00','01')" href="#" id="1000837" >阿坝</a>
+                                        
+                                            <a onclick="turnTo('1000838','00','01')" href="#" id="1000838" >德阳</a>
+                                        
+                                            <a onclick="turnTo('1000839','00','01')" href="#" id="1000839" >广元</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('290',this)">陕西</span>
+                        <div class="cityList" style="display:none"  id="290">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000029','00','01')" href="#" id="1000029" >西安</a>
+                                        
+                                            <a onclick="turnTo('1000911','00','01')" href="#" id="1000911" >延安</a>
+                                        
+                                            <a onclick="turnTo('1000912','00','01')" href="#" id="1000912" >榆林</a>
+                                        
+                                            <a onclick="turnTo('1000913','00','01')" href="#" id="1000913" >渭南</a>
+                                        
+                                            <a onclick="turnTo('1000914','00','01')" href="#" id="1000914" >商洛</a>
+                                        
+                                            <a onclick="turnTo('1000915','00','01')" href="#" id="1000915" >安康</a>
+                                        
+                                            <a onclick="turnTo('1000916','00','01')" href="#" id="1000916" >汉中</a>
+                                        
+                                            <a onclick="turnTo('1000917','00','01')" href="#" id="1000917" >宝鸡</a>
+                                        
+                                            <a onclick="turnTo('1000918','00','01')" href="#" id="1000918" >咸阳</a>
+                                        
+                                            <a onclick="turnTo('1000919','00','01')" href="#" id="1000919" >铜川</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('311',this)">河北</span>
+                        <div class="cityList" style="display:none"  id="311">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000310','00','01')" href="#" id="1000310" >邯郸</a>
+                                        
+                                            <a onclick="turnTo('1000311','00','01')" href="#" id="1000311" >石家庄</a>
+                                        
+                                            <a onclick="turnTo('1000312','00','01')" href="#" id="1000312" >保定</a>
+                                        
+                                            <a onclick="turnTo('1000313','00','01')" href="#" id="1000313" >张家口</a>
+                                        
+                                            <a onclick="turnTo('1000314','00','01')" href="#" id="1000314" >承德</a>
+                                        
+                                            <a onclick="turnTo('1000315','00','01')" href="#" id="1000315" >唐山</a>
+                                        
+                                            <a onclick="turnTo('1000316','00','01')" href="#" id="1000316" >廊坊</a>
+                                        
+                                            <a onclick="turnTo('1000317','00','01')" href="#" id="1000317" >沧州</a>
+                                        
+                                            <a onclick="turnTo('1000318','00','01')" href="#" id="1000318" >衡水</a>
+                                        
+                                            <a onclick="turnTo('1000319','00','01')" href="#" id="1000319" >邢台</a>
+                                        
+                                            <a onclick="turnTo('1000335','00','01')" href="#" id="1000335" >秦皇岛</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('351',this)">山西</span>
+                        <div class="cityList" style="display:none"  id="351">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000349','00','01')" href="#" id="1000349" >朔州</a>
+                                        
+                                            <a onclick="turnTo('1000350','00','01')" href="#" id="1000350" >忻州</a>
+                                        
+                                            <a onclick="turnTo('1000351','00','01')" href="#" id="1000351" >太原</a>
+                                        
+                                            <a onclick="turnTo('1000352','00','01')" href="#" id="1000352" >大同</a>
+                                        
+                                            <a onclick="turnTo('1000353','00','01')" href="#" id="1000353" >阳泉</a>
+                                        
+                                            <a onclick="turnTo('1000354','00','01')" href="#" id="1000354" >晋中</a>
+                                        
+                                            <a onclick="turnTo('1000355','00','01')" href="#" id="1000355" >长治</a>
+                                        
+                                            <a onclick="turnTo('1000356','00','01')" href="#" id="1000356" >晋城</a>
+                                        
+                                            <a onclick="turnTo('1000357','00','01')" href="#" id="1000357" >临汾</a>
+                                        
+                                            <a onclick="turnTo('1000358','00','01')" href="#" id="1000358" >吕梁</a>
+                                        
+                                            <a onclick="turnTo('1000359','00','01')" href="#" id="1000359" >运城</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('371',this)">河南</span>
+                        <div class="cityList" style="display:none"  id="371">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000370','00','01')" href="#" id="1000370" >商丘</a>
+                                        
+                                            <a onclick="turnTo('1000371','00','01')" href="#" id="1000371" >郑州</a>
+                                        
+                                            <a onclick="turnTo('1000372','00','01')" href="#" id="1000372" >安阳</a>
+                                        
+                                            <a onclick="turnTo('1000373','00','01')" href="#" id="1000373" >新乡</a>
+                                        
+                                            <a onclick="turnTo('1000374','00','01')" href="#" id="1000374" >许昌</a>
+                                        
+                                            <a onclick="turnTo('1000375','00','01')" href="#" id="1000375" >平顶山</a>
+                                        
+                                            <a onclick="turnTo('1000376','00','01')" href="#" id="1000376" >信阳</a>
+                                        
+                                            <a onclick="turnTo('1000377','00','01')" href="#" id="1000377" >南阳</a>
+                                        
+                                            <a onclick="turnTo('1000378','00','01')" href="#" id="1000378" >开封</a>
+                                        
+                                            <a onclick="turnTo('1000379','00','01')" href="#" id="1000379" >洛阳</a>
+                                        
+                                            <a onclick="turnTo('1000391','00','01')" href="#" id="1000391" >焦作</a>
+                                        
+                                            <a onclick="turnTo('1000392','00','01')" href="#" id="1000392" >鹤壁</a>
+                                        
+                                            <a onclick="turnTo('1000393','00','01')" href="#" id="1000393" >濮阳</a>
+                                        
+                                            <a onclick="turnTo('1000394','00','01')" href="#" id="1000394" >周口</a>
+                                        
+                                            <a onclick="turnTo('1000395','00','01')" href="#" id="1000395" >漯河</a>
+                                        
+                                            <a onclick="turnTo('1000396','00','01')" href="#" id="1000396" >驻马店</a>
+                                        
+                                            <a onclick="turnTo('1000398','00','01')" href="#" id="1000398" >三门峡</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('431',this)">吉林</span>
+                        <div class="cityList" style="display:none"  id="431">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000431','00','01')" href="#" id="1000431" >长春</a>
+                                        
+                                            <a onclick="turnTo('1000432','00','01')" href="#" id="1000432" >吉林</a>
+                                        
+                                            <a onclick="turnTo('1000433','00','01')" href="#" id="1000433" >延吉</a>
+                                        
+                                            <a onclick="turnTo('1000434','00','01')" href="#" id="1000434" >四平</a>
+                                        
+                                            <a onclick="turnTo('1000435','00','01')" href="#" id="1000435" >通化</a>
+                                        
+                                            <a onclick="turnTo('1000436','00','01')" href="#" id="1000436" >白城</a>
+                                        
+                                            <a onclick="turnTo('1000437','00','01')" href="#" id="1000437" >辽源</a>
+                                        
+                                            <a onclick="turnTo('1000438','00','01')" href="#" id="1000438" >松原</a>
+                                        
+                                            <a onclick="turnTo('1000439','00','01')" href="#" id="1000439" >白山</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('451',this)">黑龙江</span>
+                        <div class="cityList" style="display:none"  id="451">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000451','00','01')" href="#" id="1000451" >哈尔滨</a>
+                                        
+                                            <a onclick="turnTo('1000452','00','01')" href="#" id="1000452" >齐齐哈尔</a>
+                                        
+                                            <a onclick="turnTo('1000453','00','01')" href="#" id="1000453" >牡丹江</a>
+                                        
+                                            <a onclick="turnTo('1000454','00','01')" href="#" id="1000454" >佳木斯</a>
+                                        
+                                            <a onclick="turnTo('1000455','00','01')" href="#" id="1000455" >绥化</a>
+                                        
+                                            <a onclick="turnTo('1000456','00','01')" href="#" id="1000456" >黑河</a>
+                                        
+                                            <a onclick="turnTo('1000457','00','01')" href="#" id="1000457" >大兴安岭</a>
+                                        
+                                            <a onclick="turnTo('1000458','00','01')" href="#" id="1000458" >伊春</a>
+                                        
+                                            <a onclick="turnTo('1000459','00','01')" href="#" id="1000459" >大庆</a>
+                                        
+                                            <a onclick="turnTo('1000464','00','01')" href="#" id="1000464" >七台河</a>
+                                        
+                                            <a onclick="turnTo('1000467','00','01')" href="#" id="1000467" >鸡西</a>
+                                        
+                                            <a onclick="turnTo('1000468','00','01')" href="#" id="1000468" >鹤岗</a>
+                                        
+                                            <a onclick="turnTo('1000469','00','01')" href="#" id="1000469" >双鸭山</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('471',this)">内蒙古</span>
+                        <div class="cityList" style="display:none"  id="471">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000470','00','01')" href="#" id="1000470" >呼伦贝尔</a>
+                                        
+                                            <a onclick="turnTo('1000471','00','01')" href="#" id="1000471" >呼和浩特</a>
+                                        
+                                            <a onclick="turnTo('1000472','00','01')" href="#" id="1000472" >包头</a>
+                                        
+                                            <a onclick="turnTo('1000473','00','01')" href="#" id="1000473" >乌海</a>
+                                        
+                                            <a onclick="turnTo('1000474','00','01')" href="#" id="1000474" >乌兰察布</a>
+                                        
+                                            <a onclick="turnTo('1000475','00','01')" href="#" id="1000475" >通辽</a>
+                                        
+                                            <a onclick="turnTo('1000476','00','01')" href="#" id="1000476" >赤峰</a>
+                                        
+                                            <a onclick="turnTo('1000477','00','01')" href="#" id="1000477" >鄂尔多斯</a>
+                                        
+                                            <a onclick="turnTo('1000478','00','01')" href="#" id="1000478" >巴彦淖尔</a>
+                                        
+                                            <a onclick="turnTo('1000479','00','01')" href="#" id="1000479" >锡林郭勒盟</a>
+                                        
+                                            <a onclick="turnTo('1000482','00','01')" href="#" id="1000482" >兴安盟</a>
+                                        
+                                            <a onclick="turnTo('1000483','00','01')" href="#" id="1000483" >阿拉善盟</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('531',this)">山东</span>
+                        <div class="cityList" style="display:none"  id="531">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000530','00','01')" href="#" id="1000530" >菏泽</a>
+                                        
+                                            <a onclick="turnTo('1000531','00','01')" href="#" id="1000531" >济南</a>
+                                        
+                                            <a onclick="turnTo('1000532','00','01')" href="#" id="1000532" >青岛</a>
+                                        
+                                            <a onclick="turnTo('1000533','00','01')" href="#" id="1000533" >淄博</a>
+                                        
+                                            <a onclick="turnTo('1000534','00','01')" href="#" id="1000534" >德州</a>
+                                        
+                                            <a onclick="turnTo('1000535','00','01')" href="#" id="1000535" >烟台</a>
+                                        
+                                            <a onclick="turnTo('1000536','00','01')" href="#" id="1000536" >潍坊</a>
+                                        
+                                            <a onclick="turnTo('1000537','00','01')" href="#" id="1000537" >济宁</a>
+                                        
+                                            <a onclick="turnTo('1000538','00','01')" href="#" id="1000538" >泰安</a>
+                                        
+                                            <a onclick="turnTo('1000539','00','01')" href="#" id="1000539" >临沂</a>
+                                        
+                                            <a onclick="turnTo('1000543','00','01')" href="#" id="1000543" >滨州</a>
+                                        
+                                            <a onclick="turnTo('1000546','00','01')" href="#" id="1000546" >东营</a>
+                                        
+                                            <a onclick="turnTo('1000631','00','01')" href="#" id="1000631" >威海</a>
+                                        
+                                            <a onclick="turnTo('1000632','00','01')" href="#" id="1000632" >枣庄</a>
+                                        
+                                            <a onclick="turnTo('1000633','00','01')" href="#" id="1000633" >日照</a>
+                                        
+                                            <a onclick="turnTo('1000634','00','01')" href="#" id="1000634" >莱芜</a>
+                                        
+                                            <a onclick="turnTo('1000635','00','01')" href="#" id="1000635" >聊城</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('551',this)">安徽</span>
+                        <div class="cityList" style="display:none"  id="551">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000550','00','01')" href="#" id="1000550" >滁州</a>
+                                        
+                                            <a onclick="turnTo('1000551','00','01')" href="#" id="1000551" >合肥</a>
+                                        
+                                            <a onclick="turnTo('1000552','00','01')" href="#" id="1000552" >蚌埠</a>
+                                        
+                                            <a onclick="turnTo('1000553','00','01')" href="#" id="1000553" >芜湖</a>
+                                        
+                                            <a onclick="turnTo('1000554','00','01')" href="#" id="1000554" >淮南</a>
+                                        
+                                            <a onclick="turnTo('1000555','00','01')" href="#" id="1000555" >马鞍山</a>
+                                        
+                                            <a onclick="turnTo('1000556','00','01')" href="#" id="1000556" >安庆</a>
+                                        
+                                            <a onclick="turnTo('1000557','00','01')" href="#" id="1000557" >宿州</a>
+                                        
+                                            <a onclick="turnTo('1000558','00','01')" href="#" id="1000558" >阜阳</a>
+                                        
+                                            <a onclick="turnTo('1000559','00','01')" href="#" id="1000559" >黄山</a>
+                                        
+                                            <a onclick="turnTo('1000561','00','01')" href="#" id="1000561" >淮北</a>
+                                        
+                                            <a onclick="turnTo('1000562','00','01')" href="#" id="1000562" >铜陵</a>
+                                        
+                                            <a onclick="turnTo('1000563','00','01')" href="#" id="1000563" >宣城</a>
+                                        
+                                            <a onclick="turnTo('1000564','00','01')" href="#" id="1000564" >六安</a>
+                                        
+                                            <a onclick="turnTo('1000565','00','01')" href="#" id="1000565" >巢湖</a>
+                                        
+                                            <a onclick="turnTo('1000566','00','01')" href="#" id="1000566" >池州</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('571',this)">浙江</span>
+                        <div class="cityList" style="display:none"  id="571">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000570','00','01')" href="#" id="1000570" >衢州</a>
+                                        
+                                            <a onclick="turnTo('1000571','00','01')" href="#" id="1000571" >杭州</a>
+                                        
+                                            <a onclick="turnTo('1000572','00','01')" href="#" id="1000572" >湖州</a>
+                                        
+                                            <a onclick="turnTo('1000573','00','01')" href="#" id="1000573" >嘉兴</a>
+                                        
+                                            <a onclick="turnTo('1000574','00','01')" href="#" id="1000574" >宁波</a>
+                                        
+                                            <a onclick="turnTo('1000575','00','01')" href="#" id="1000575" >绍兴</a>
+                                        
+                                            <a onclick="turnTo('1000576','00','01')" href="#" id="1000576" >台州</a>
+                                        
+                                            <a onclick="turnTo('1000577','00','01')" href="#" id="1000577" >温州</a>
+                                        
+                                            <a onclick="turnTo('1000578','00','01')" href="#" id="1000578" >丽水</a>
+                                        
+                                            <a onclick="turnTo('1000579','00','01')" href="#" id="1000579" >金华</a>
+                                        
+                                            <a onclick="turnTo('1000580','00','01')" href="#" id="1000580" >舟山</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('591',this)">福建</span>
+                        <div class="cityList" style="display:none"  id="591">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000591','00','01')" href="#" id="1000591" >福州</a>
+                                        
+                                            <a onclick="turnTo('1000592','00','01')" href="#" id="1000592" >厦门</a>
+                                        
+                                            <a onclick="turnTo('1000593','00','01')" href="#" id="1000593" >宁德</a>
+                                        
+                                            <a onclick="turnTo('1000594','00','01')" href="#" id="1000594" >莆田</a>
+                                        
+                                            <a onclick="turnTo('1000595','00','01')" href="#" id="1000595" >泉州</a>
+                                        
+                                            <a onclick="turnTo('1000596','00','01')" href="#" id="1000596" >漳州</a>
+                                        
+                                            <a onclick="turnTo('1000597','00','01')" href="#" id="1000597" >龙岩</a>
+                                        
+                                            <a onclick="turnTo('1000598','00','01')" href="#" id="1000598" >三明</a>
+                                        
+                                            <a onclick="turnTo('1000599','00','01')" href="#" id="1000599" >南平</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('731',this)">湖南</span>
+                        <div class="cityList" style="display:none"  id="731">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000730','00','01')" href="#" id="1000730" >岳阳</a>
+                                        
+                                            <a onclick="turnTo('1000731','00','01')" href="#" id="1000731" >长沙</a>
+                                        
+                                            <a onclick="turnTo('1000732','00','01')" href="#" id="1000732" >株洲</a>
+                                        
+                                            <a onclick="turnTo('1000733','00','01')" href="#" id="1000733" >湘潭</a>
+                                        
+                                            <a onclick="turnTo('1000734','00','01')" href="#" id="1000734" >衡阳</a>
+                                        
+                                            <a onclick="turnTo('1000735','00','01')" href="#" id="1000735" >郴州</a>
+                                        
+                                            <a onclick="turnTo('1000736','00','01')" href="#" id="1000736" >常德</a>
+                                        
+                                            <a onclick="turnTo('1000737','00','01')" href="#" id="1000737" >益阳</a>
+                                        
+                                            <a onclick="turnTo('1000738','00','01')" href="#" id="1000738" >娄底</a>
+                                        
+                                            <a onclick="turnTo('1000739','00','01')" href="#" id="1000739" >邵阳</a>
+                                        
+                                            <a onclick="turnTo('1000743','00','01')" href="#" id="1000743" >自治州</a>
+                                        
+                                            <a onclick="turnTo('1000744','00','01')" href="#" id="1000744" >张家界</a>
+                                        
+                                            <a onclick="turnTo('1000745','00','01')" href="#" id="1000745" >怀化</a>
+                                        
+                                            <a onclick="turnTo('1000746','00','01')" href="#" id="1000746" >永州</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('771',this)">广西</span>
+                        <div class="cityList" style="display:none"  id="771">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000770','00','01')" href="#" id="1000770" >防城港</a>
+                                        
+                                            <a onclick="turnTo('1000771','00','01')" href="#" id="1000771" >南宁</a>
+                                        
+                                            <a onclick="turnTo('1000772','00','01')" href="#" id="1000772" >柳州</a>
+                                        
+                                            <a onclick="turnTo('1000773','00','01')" href="#" id="1000773" >桂林</a>
+                                        
+                                            <a onclick="turnTo('1000774','00','01')" href="#" id="1000774" >梧州</a>
+                                        
+                                            <a onclick="turnTo('1000775','00','01')" href="#" id="1000775" >玉林</a>
+                                        
+                                            <a onclick="turnTo('1000776','00','01')" href="#" id="1000776" >百色</a>
+                                        
+                                            <a onclick="turnTo('1000777','00','01')" href="#" id="1000777" >钦州</a>
+                                        
+                                            <a onclick="turnTo('1000778','00','01')" href="#" id="1000778" >河池</a>
+                                        
+                                            <a onclick="turnTo('1000779','00','01')" href="#" id="1000779" >北海</a>
+                                        
+                                            <a onclick="turnTo('1000780','00','01')" href="#" id="1000780" >崇左</a>
+                                        
+                                            <a onclick="turnTo('1000781','00','01')" href="#" id="1000781" >来宾</a>
+                                        
+                                            <a onclick="turnTo('1000782','00','01')" href="#" id="1000782" >贺州</a>
+                                        
+                                            <a onclick="turnTo('1000783','00','01')" href="#" id="1000783" >贵港</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('791',this)">江西</span>
+                        <div class="cityList" style="display:none"  id="791">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000701','00','01')" href="#" id="1000701" >鹰潭</a>
+                                        
+                                            <a onclick="turnTo('1000790','00','01')" href="#" id="1000790" >新余</a>
+                                        
+                                            <a onclick="turnTo('1000791','00','01')" href="#" id="1000791" >南昌</a>
+                                        
+                                            <a onclick="turnTo('1000792','00','01')" href="#" id="1000792" >九江</a>
+                                        
+                                            <a onclick="turnTo('1000793','00','01')" href="#" id="1000793" >上饶</a>
+                                        
+                                            <a onclick="turnTo('1000794','00','01')" href="#" id="1000794" >抚州</a>
+                                        
+                                            <a onclick="turnTo('1000795','00','01')" href="#" id="1000795" >宜春</a>
+                                        
+                                            <a onclick="turnTo('1000796','00','01')" href="#" id="1000796" >吉安</a>
+                                        
+                                            <a onclick="turnTo('1000797','00','01')" href="#" id="1000797" >赣州</a>
+                                        
+                                            <a onclick="turnTo('1000798','00','01')" href="#" id="1000798" >景德镇</a>
+                                        
+                                            <a onclick="turnTo('1000799','00','01')" href="#" id="1000799" >萍乡</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('851',this)">贵州</span>
+                        <div class="cityList" style="display:none"  id="851">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000851','00','01')" href="#" id="1000851" >贵阳</a>
+                                        
+                                            <a onclick="turnTo('1000852','00','01')" href="#" id="1000852" >遵义</a>
+                                        
+                                            <a onclick="turnTo('1000853','00','01')" href="#" id="1000853" >安顺</a>
+                                        
+                                            <a onclick="turnTo('1000854','00','01')" href="#" id="1000854" >都匀</a>
+                                        
+                                            <a onclick="turnTo('1000855','00','01')" href="#" id="1000855" >凯里</a>
+                                        
+                                            <a onclick="turnTo('1000856','00','01')" href="#" id="1000856" >铜仁</a>
+                                        
+                                            <a onclick="turnTo('1000857','00','01')" href="#" id="1000857" >毕节</a>
+                                        
+                                            <a onclick="turnTo('1000858','00','01')" href="#" id="1000858" >六盘水</a>
+                                        
+                                            <a onclick="turnTo('1000859','00','01')" href="#" id="1000859" >兴义</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('871',this)">云南</span>
+                        <div class="cityList" style="display:none"  id="871">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000691','00','01')" href="#" id="1000691" >版纳</a>
+                                        
+                                            <a onclick="turnTo('1000692','00','01')" href="#" id="1000692" >德宏</a>
+                                        
+                                            <a onclick="turnTo('1000870','00','01')" href="#" id="1000870" >昭通</a>
+                                        
+                                            <a onclick="turnTo('1000871','00','01')" href="#" id="1000871" >昆明</a>
+                                        
+                                            <a onclick="turnTo('1000872','00','01')" href="#" id="1000872" >大理</a>
+                                        
+                                            <a onclick="turnTo('1000873','00','01')" href="#" id="1000873" >红河</a>
+                                        
+                                            <a onclick="turnTo('1000874','00','01')" href="#" id="1000874" >曲靖</a>
+                                        
+                                            <a onclick="turnTo('1000875','00','01')" href="#" id="1000875" >保山</a>
+                                        
+                                            <a onclick="turnTo('1000876','00','01')" href="#" id="1000876" >文山</a>
+                                        
+                                            <a onclick="turnTo('1000877','00','01')" href="#" id="1000877" >玉溪</a>
+                                        
+                                            <a onclick="turnTo('1000878','00','01')" href="#" id="1000878" >楚雄</a>
+                                        
+                                            <a onclick="turnTo('1000879','00','01')" href="#" id="1000879" >普洱</a>
+                                        
+                                            <a onclick="turnTo('1000883','00','01')" href="#" id="1000883" >临沧</a>
+                                        
+                                            <a onclick="turnTo('1000886','00','01')" href="#" id="1000886" >怒江</a>
+                                        
+                                            <a onclick="turnTo('1000887','00','01')" href="#" id="1000887" >迪庆</a>
+                                        
+                                            <a onclick="turnTo('1000888','00','01')" href="#" id="1000888" >丽江</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('891',this)">西藏</span>
+                        <div class="cityList" style="display:none"  id="891">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000891','00','01')" href="#" id="1000891" >拉萨</a>
+                                        
+                                            <a onclick="turnTo('1000892','00','01')" href="#" id="1000892" >日喀则</a>
+                                        
+                                            <a onclick="turnTo('1000893','00','01')" href="#" id="1000893" >山南</a>
+                                        
+                                            <a onclick="turnTo('1000894','00','01')" href="#" id="1000894" >林芝</a>
+                                        
+                                            <a onclick="turnTo('1000895','00','01')" href="#" id="1000895" >昌都</a>
+                                        
+                                            <a onclick="turnTo('1000896','00','01')" href="#" id="1000896" >那曲</a>
+                                        
+                                            <a onclick="turnTo('1000897','00','01')" href="#" id="1000897" >阿里</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                                        <span><a onclick="turnTo('1000898','00','01')" href="#" id="1000898" >海南</a></span>
+                                    
+                        <span onclick="getCity('931',this)">甘肃</span>
+                        <div class="cityList" style="display:none"  id="931">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000930','00','01')" href="#" id="1000930" >临夏</a>
+                                        
+                                            <a onclick="turnTo('1000931','00','01')" href="#" id="1000931" >兰州</a>
+                                        
+                                            <a onclick="turnTo('1000932','00','01')" href="#" id="1000932" >定西</a>
+                                        
+                                            <a onclick="turnTo('1000933','00','01')" href="#" id="1000933" >平凉</a>
+                                        
+                                            <a onclick="turnTo('1000934','00','01')" href="#" id="1000934" >庆阳</a>
+                                        
+                                            <a onclick="turnTo('1000935','00','01')" href="#" id="1000935" >金昌</a>
+                                        
+                                            <a onclick="turnTo('1000936','00','01')" href="#" id="1000936" >张掖</a>
+                                        
+                                            <a onclick="turnTo('1000937','00','01')" href="#" id="1000937" >酒泉</a>
+                                        
+                                            <a onclick="turnTo('1000938','00','01')" href="#" id="1000938" >天水</a>
+                                        
+                                            <a onclick="turnTo('1000939','00','01')" href="#" id="1000939" >陇南</a>
+                                        
+                                            <a onclick="turnTo('1000940','00','01')" href="#" id="1000940" >武威</a>
+                                        
+                                            <a onclick="turnTo('1000941','00','01')" href="#" id="1000941" >甘南</a>
+                                        
+                                            <a onclick="turnTo('1000942','00','01')" href="#" id="1000942" >嘉峪关</a>
+                                        
+                                            <a onclick="turnTo('1000943','00','01')" href="#" id="1000943" >白银</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('951',this)">宁夏</span>
+                        <div class="cityList" style="display:none"  id="951">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000951','00','01')" href="#" id="1000951" >银川</a>
+                                        
+                                            <a onclick="turnTo('1000952','00','01')" href="#" id="1000952" >石嘴山</a>
+                                        
+                                            <a onclick="turnTo('1000953','00','01')" href="#" id="1000953" >吴忠</a>
+                                        
+                                            <a onclick="turnTo('1000954','00','01')" href="#" id="1000954" >固原</a>
+                                        
+                                            <a onclick="turnTo('1000955','00','01')" href="#" id="1000955" >中卫</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('971',this)">青海</span>
+                        <div class="cityList" style="display:none"  id="971">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000970','00','01')" href="#" id="1000970" >海北</a>
+                                        
+                                            <a onclick="turnTo('1000971','00','01')" href="#" id="1000971" >西宁</a>
+                                        
+                                            <a onclick="turnTo('1000972','00','01')" href="#" id="1000972" >海东</a>
+                                        
+                                            <a onclick="turnTo('1000973','00','01')" href="#" id="1000973" >黄南</a>
+                                        
+                                            <a onclick="turnTo('1000975','00','01')" href="#" id="1000975" >果洛</a>
+                                        
+                                            <a onclick="turnTo('1000976','00','01')" href="#" id="1000976" >玉树</a>
+                                        
+                                            <a onclick="turnTo('1000977','00','01')" href="#" id="1000977" >海西</a>
+                                        
+                                            <a onclick="turnTo('1000979','00','01')" href="#" id="1000979" >格尔木</a>
+                                        
+                                            <a onclick="turnTo('1000980','00','01')" href="#" id="1000980" >海南</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                        <span onclick="getCity('991',this)">新疆</span>
+                        <div class="cityList" style="display:none"  id="991">
+                             <div id="windown-close" onclick="optCityList(this)"></div>
+                                
+                                            <a onclick="turnTo('1000901','00','01')" href="#" id="1000901" >塔城</a>
+                                        
+                                            <a onclick="turnTo('1000902','00','01')" href="#" id="1000902" >哈密</a>
+                                        
+                                            <a onclick="turnTo('1000903','00','01')" href="#" id="1000903" >和田</a>
+                                        
+                                            <a onclick="turnTo('1000906','00','01')" href="#" id="1000906" >阿勒泰</a>
+                                        
+                                            <a onclick="turnTo('1000908','00','01')" href="#" id="1000908" >克州</a>
+                                        
+                                            <a onclick="turnTo('1000909','00','01')" href="#" id="1000909" >博乐</a>
+                                        
+                                            <a onclick="turnTo('1000990','00','01')" href="#" id="1000990" >克拉玛依</a>
+                                        
+                                            <a onclick="turnTo('1000991','00','01')" href="#" id="1000991" >乌鲁木齐</a>
+                                        
+                                            <a onclick="turnTo('1000992','00','01')" href="#" id="1000992" >奎屯</a>
+                                        
+                                            <a onclick="turnTo('1000993','00','01')" href="#" id="1000993" >石河子</a>
+                                        
+                                            <a onclick="turnTo('1000994','00','01')" href="#" id="1000994" >昌吉</a>
+                                        
+                                            <a onclick="turnTo('1000995','00','01')" href="#" id="1000995" >吐鲁番</a>
+                                        
+                                            <a onclick="turnTo('1000996','00','01')" href="#" id="1000996" >库尔勒</a>
+                                        
+                                            <a onclick="turnTo('1000997','00','01')" href="#" id="1000997" >阿克苏</a>
+                                        
+                                            <a onclick="turnTo('1000998','00','01')" href="#" id="1000998" >喀什</a>
+                                        
+                                            <a onclick="turnTo('1000999','00','01')" href="#" id="1000999" >伊犁</a>
+                                        
+                                <div class="clr8"></div>
+                            </div>
+                        
+                </div>
+            </div>
+            
+            <div class="widget">
+                <div class="widgetit" id="conver" name="conver">话音套餐</div>
+                <div class="widgetcon">
+                    <div  class="tabset" id="setSound">
+                    <div class="tab" id="tabSoundout">
+                        <ul id="tabSound">                      
+                            
+                                <li class="hovertab" id="120135">商旅套餐<b></b></li>
+                            
+                                <li class="normaltab" id="120148">上网套餐<b></b></li>
+                            
+                                <li class="normaltab" id="120161">本地套餐<b></b></li>
+                            
+                             
+                                <li class="normaltab" id="120194">两城一家（省际版）<b></b></li>
+                             
+                                <li class="normaltab" id="120232">两城一家（省内版）<b></b></li>
+                             
+                             
+                            
+                        </ul>
+                        <div class="clr"></div>
+                    </div>
+                    <span class="first"><img src="/images/dynamic/rate/btn_left.gif" onclick="BtnMoveLeft(event,'tabSound','tabSoundout','setSound','imgLeftSound','imgRightSound')" id="imgLeftSound" /></span>
+                    <span class="next"><img src="/images/dynamic/rate/btn_right.gif" onclick="BtnMoveRight(event,'tabSound','tabSoundout','setSound','imgLeftSound','imgRightSound')"  id="imgRightSound" /></span>
+                    <dl id="contentSound">
+                        
+                        <dt class="dis">
+                        
+                            <table>
+                                  <tr>
+                                    <th rowspan="2" style="width:55px;" width="55">套餐<br/>月使<br/>用费</th>
+                                    <th colspan="4">套餐内容</th>
+                                    <th rowspan="2" style="width:170px" width="170">套餐外资费</th>
+                                    <th rowspan="2" style="width:95px" width="95">短信办理代码<br/>（发送代码到<br/>10086）</th>
+                                    <th rowspan="2" style="widht:75px" width="75">详情及办理</th>
+                                  </tr>
+                                  <tr>
+                                    <th style="width:90px" width="90px">通话分<br/>钟数</th>
+                                    <th style="width:60px" width="60px">被叫免<br/>费范围</th>
+                                    <th style="width:60px" width="60px">数据<br/>流量</th>
+                                    <th style="width:80px" width="80px">数据<br/>业务</th>
+                                  </tr>
+                                  <tr><td><a href='rate_details.jsp?rateId=122581' target='_blank'>58元</a></td>
+<td rowspan='1'>国内主叫国内150分钟</td>
+<td rowspan='9'>全国</td>
+<td rowspan='9'>30M</td>
+<td rowspan='9'>来电显示</td>
+<td rowspan='1'>套餐外长市漫一口价0.25元/分钟，全国接听免费（国内不含港澳台）<br/>数据流量：0.0005元/KB<br/></td>
+<td rowspan='1'>KTQSL58</td>
+<td><a onclick='openUrl(122581)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122594' target='_blank'>88元</a></td>
+<td rowspan='1'>国内主叫国内350分钟</td>
+<td rowspan='8'>本地主叫0.19元/分钟；本地拨打国内长途0.19元/分钟；国内漫游主叫0.19元/分钟<br/>数据流量：0.0005元/KB<br/></td>
+<td rowspan='1'>KTQSL88</td>
+<td><a onclick='openUrl(122594)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122607' target='_blank'>128元</a></td>
+<td rowspan='1'>国内主叫国内650分钟</td>
+<td rowspan='1'>KTQSL128</td>
+<td><a onclick='openUrl(122607)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122620' target='_blank'>158元</a></td>
+<td rowspan='1'>国内主叫国内900分钟</td>
+<td rowspan='1'>KTQSL158</td>
+<td><a onclick='openUrl(122620)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122633' target='_blank'>188元</a></td>
+<td rowspan='1'>国内主叫国内1200分钟</td>
+<td rowspan='1'>KTQSL188</td>
+<td><a onclick='openUrl(122633)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122646' target='_blank'>288元</a></td>
+<td rowspan='1'>国内主叫国内1900分钟</td>
+<td rowspan='1'>KTQSL288</td>
+<td><a onclick='openUrl(122646)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122659' target='_blank'>388元</a></td>
+<td rowspan='1'>国内主叫国内2600分钟</td>
+<td rowspan='1'>KTQSL388</td>
+<td><a onclick='openUrl(122659)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122672' target='_blank'>588元</a></td>
+<td rowspan='1'>国内主叫国内4000分钟</td>
+<td rowspan='1'>KTQSL588</td>
+<td><a onclick='openUrl(122672)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122685' target='_blank'>888元</a></td>
+<td rowspan='1'>国内主叫国内6000分钟</td>
+<td rowspan='1'>KTQSL888</td>
+<td><a onclick='openUrl(122685)' href='#' class='btn'>网厅办理</a></td></tr>
+
+                                </table>
+                        </dt>                       
+                        
+                        <dt class="undis">
+                        
+                            <table>
+                                  <tr>
+                                    <th rowspan="2" style="width:55px;" width="55">套餐<br/>月使<br/>用费</th>
+                                    <th colspan="4">套餐内容</th>
+                                    <th rowspan="2" style="width:170px" width="170">套餐外资费</th>
+                                    <th rowspan="2" style="width:95px" width="95">短信办理代码<br/>（发送代码到<br/>10086）</th>
+                                    <th rowspan="2" style="widht:75px" width="75">详情及办理</th>
+                                  </tr>
+                                  <tr>
+                                    <th style="width:90px" width="90px">通话分<br/>钟数</th>
+                                    <th style="width:60px" width="60px">被叫免<br/>费范围</th>
+                                    <th style="width:60px" width="60px">数据<br/>流量</th>
+                                    <th style="width:80px" width="80px">数据<br/>业务</th>
+                                  </tr>
+                                  <tr><td><a href='rate_details.jsp?rateId=122698' target='_blank'>58元</a></td>
+<td rowspan='1'>国内主叫国内50分钟</td>
+<td rowspan='9'>全国</td>
+<td rowspan='1'>200M</td>
+<td rowspan='9'>来电显示</td>
+<td rowspan='1'>套餐外长市漫一口价0.25元/分钟，全国接听免费（国内不含港澳台）<br/>数据流量：0.0005元/KB<br/></td>
+<td rowspan='1'>KTQSW58</td>
+<td><a onclick='openUrl(122698)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122711' target='_blank'>88元</a></td>
+<td rowspan='1'>国内主叫国内200分钟</td>
+<td rowspan='1'>300M</td>
+<td rowspan='8'>套餐外长市漫一口价0.19元/分钟，全国接听免费（国内不含港澳台）<br/>数据流量：0.0005元/KB<br/></td>
+<td rowspan='1'>KTQSW88</td>
+<td><a onclick='openUrl(122711)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122724' target='_blank'>128元</a></td>
+<td rowspan='1'>国内主叫国内420分钟</td>
+<td rowspan='1'>400M</td>
+<td rowspan='1'>KTQSW128</td>
+<td><a onclick='openUrl(122724)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122737' target='_blank'>158元</a></td>
+<td rowspan='1'>国内主叫国内510分钟</td>
+<td rowspan='1'>450M</td>
+<td rowspan='1'>KTQSW158</td>
+<td><a onclick='openUrl(122737)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122750' target='_blank'>188元</a></td>
+<td rowspan='1'>国内主叫国内600分钟</td>
+<td rowspan='1'>500M</td>
+<td rowspan='1'>KTQSW188</td>
+<td><a onclick='openUrl(122750)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122763' target='_blank'>288元</a></td>
+<td rowspan='1'>国内主叫国内1000分钟</td>
+<td rowspan='1'>750M</td>
+<td rowspan='1'>KTQSW288</td>
+<td><a onclick='openUrl(122763)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122776' target='_blank'>388元</a></td>
+<td rowspan='1'>国内主叫国内1400分钟</td>
+<td rowspan='1'>1000M</td>
+<td rowspan='1'>KTQSW388</td>
+<td><a onclick='openUrl(122776)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122789' target='_blank'>588元</a></td>
+<td rowspan='1'>国内主叫国内2200分钟</td>
+<td rowspan='1'>2000M</td>
+<td rowspan='1'>KTQSW588</td>
+<td><a onclick='openUrl(122789)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122802' target='_blank'>888元</a></td>
+<td rowspan='1'>国内主叫国内3600分钟</td>
+<td rowspan='1'>3000M</td>
+<td rowspan='1'>KTQSW888</td>
+<td><a onclick='openUrl(122802)' href='#' class='btn'>网厅办理</a></td></tr>
+
+                                </table>
+                        </dt>                       
+                        
+                        <dt class="undis">
+                        
+                            <table>
+                                  <tr>
+                                    <th rowspan="2" style="width:55px;" width="55">套餐<br/>月使<br/>用费</th>
+                                    <th colspan="4">套餐内容</th>
+                                    <th rowspan="2" style="width:170px" width="170">套餐外资费</th>
+                                    <th rowspan="2" style="width:95px" width="95">短信办理代码<br/>（发送代码到<br/>10086）</th>
+                                    <th rowspan="2" style="widht:75px" width="75">详情及办理</th>
+                                  </tr>
+                                  <tr>
+                                    <th style="width:90px" width="90px">通话分<br/>钟数</th>
+                                    <th style="width:60px" width="60px">被叫免<br/>费范围</th>
+                                    <th style="width:60px" width="60px">数据<br/>流量</th>
+                                    <th style="width:80px" width="80px">数据<br/>业务</th>
+                                  </tr>
+                                  <tr><td><a href='rate_details.jsp?rateId=122815' target='_blank'>58元</a></td>
+<td rowspan='1'>本地主叫国内260分钟</td>
+<td rowspan='3'>全国</td>
+<td rowspan='3'>30M</td>
+<td rowspan='3'>来电显示</td>
+<td rowspan='1'>套餐外本地主叫国内0.25元/分钟，漫游主叫0.29元/分钟，全国接听免费（国内不含港澳台）<br/>数据流量：0.0005元/KB<br/></td>
+<td rowspan='1'>KTQBD58</td>
+<td><a onclick='openUrl(122815)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122828' target='_blank'>88元</a></td>
+<td rowspan='1'>本地主叫国内480分钟</td>
+<td rowspan='1'>套餐外本地主叫国内0.19元/分钟，漫游主叫0.29元/分钟，全国接听免费（国内不含港澳台）<br/>数据流量：0.0005元/KB<br/></td>
+<td rowspan='1'>KTQBD88</td>
+<td><a onclick='openUrl(122828)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='rate_details.jsp?rateId=122841' target='_blank'>128元</a></td>
+<td rowspan='1'>本地主叫国内750分钟</td>
+<td rowspan='1'>套餐外本地主叫国内0.19元/分钟，漫游主叫0.30元/分钟，全国接听免费（国内不含港澳台）<br/>数据流量：0.0005元/KB<br/></td>
+<td rowspan='1'>KTQBD128</td>
+<td><a onclick='openUrl(122841)' href='#' class='btn'>网厅办理</a></td></tr>
+
+                                </table>
+                        </dt>                       
+                        
+                        
+                        <dt class="undis">
+                            <table>
+                                  <tr>
+                                    <th class="wid120">可选包名称</th>
+                                    <th class="wid120">可选包月使用费</th>
+                                    <th class="wid120">可选包包含</th>
+                                    <th>超出部分资费</th>
+                                    <th class="wid75">详情及办理</th>
+                                  </tr>
+                                    <tr><td><a href='opt_pack_details.jsp?optPackId=152365' target='_blank'>两城一家（省际版）-安徽省</a></td>
+<td>3元</td>
+<td>\</td>
+<td rowspan='30'>无</td>
+<td><a onclick='openPackDetail(152365)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152404' target='_blank'>两城一家（省际版）-北京市</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152404)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152443' target='_blank'>两城一家（省际版）-福建省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152443)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152482' target='_blank'>两城一家（省际版）-甘肃省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152482)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152521' target='_blank'>两城一家（省际版）-广东省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152521)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152560' target='_blank'>两城一家（省际版）-广西</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152560)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152599' target='_blank'>两城一家（省际版）-贵州省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152599)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152638' target='_blank'>两城一家（省际版）-海南省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152638)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152677' target='_blank'>两城一家（省际版）-河北省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152677)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152716' target='_blank'>两城一家（省际版）-河南省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152716)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152755' target='_blank'>两城一家（省际版）-湖北省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152755)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152794' target='_blank'>两城一家（省际版）-湖南省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152794)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152833' target='_blank'>两城一家（省际版）-吉林省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152833)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152872' target='_blank'>两城一家（省际版）-江苏省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152872)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152911' target='_blank'>两城一家（省际版）-江西省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152911)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152950' target='_blank'>两城一家（省际版）-辽宁省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152950)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=152989' target='_blank'>两城一家（省际版）-内蒙</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(152989)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153028' target='_blank'>两城一家（省际版）-宁夏</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153028)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153067' target='_blank'>两城一家（省际版）-青海省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153067)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153106' target='_blank'>两城一家（省际版）-山东省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153106)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153145' target='_blank'>两城一家（省际版）-山西省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153145)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153184' target='_blank'>两城一家（省际版）-陕西省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153184)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153223' target='_blank'>两城一家（省际版）-上海市</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153223)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153262' target='_blank'>两城一家（省际版）-四川省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153262)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153301' target='_blank'>两城一家（省际版）-天津市</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153301)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153340' target='_blank'>两城一家（省际版）-西藏</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153340)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153379' target='_blank'>两城一家（省际版）-新疆</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153379)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153418' target='_blank'>两城一家（省际版）-云南省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153418)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153457' target='_blank'>两城一家（省际版）-浙江省</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153457)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153496' target='_blank'>两城一家（省际版）-重庆市</a></td>
+<td>3元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153496)' href='#' class='btn'>网厅办理</a></td></tr>
+    
+                            </table>
+                        </dt>                       
+                        
+                        <dt class="undis">
+                            <table>
+                                  <tr>
+                                    <th class="wid120">可选包名称</th>
+                                    <th class="wid120">可选包月使用费</th>
+                                    <th class="wid120">可选包包含</th>
+                                    <th>超出部分资费</th>
+                                    <th class="wid75">详情及办理</th>
+                                  </tr>
+                                    <tr><td><a href='opt_pack_details.jsp?optPackId=153534' target='_blank'>两城一家（省内版）-大庆</a></td>
+<td>2元</td>
+<td>\</td>
+<td rowspan='12'>无</td>
+<td><a onclick='openPackDetail(153534)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153607' target='_blank'>两城一家（省内版）-鹤岗</a></td>
+<td>2元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153607)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153643' target='_blank'>两城一家（省内版）-黑河</a></td>
+<td>2元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153643)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153679' target='_blank'>两城一家（省内版）-鸡西</a></td>
+<td>2元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153679)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153714' target='_blank'>两城一家（省内版）-加格达奇</a></td>
+<td>2元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153714)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153751' target='_blank'>两城一家（省内版）-佳木斯</a></td>
+<td>2元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153751)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153787' target='_blank'>两城一家（省内版）-牡丹江</a></td>
+<td>2元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153787)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153823' target='_blank'>两城一家（省内版）-七台河</a></td>
+<td>2元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153823)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153859' target='_blank'>两城一家（省内版）-齐齐哈尔</a></td>
+<td>2元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153859)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153895' target='_blank'>两城一家（省内版）-双鸭山</a></td>
+<td>2元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153895)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153931' target='_blank'>两城一家（省内版）-绥化</a></td>
+<td>2元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153931)' href='#' class='btn'>网厅办理</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=153967' target='_blank'>两城一家（省内版）-伊春</a></td>
+<td>2元</td>
+<td>\</td>
+<td><a onclick='openPackDetail(153967)' href='#' class='btn'>网厅办理</a></td></tr>
+    
+                            </table>
+                        </dt>                       
+                        
+                    </dl>
+                    <p>备注:国内指中国内地、不含港、澳、台地区；“数据流量”指国内数据流量。<br/>
+                        
+                        
+                        
+                    </p>
+                </div>
+            </div>
+            
+            <div class="clr"></div>
+            
+            <div class="widget">
+                <div class="widgetit" id="date" name="date">流量套餐（可选包）</div>
+                <div class="widgetcon">
+                    <div  class="tabset" id="setData">
+                    <div class="tab" id="tabDataout">
+                        <ul id="tabdata">
+                            
+                                <li class="hovertab" id="120272">流量可选包套餐<b></b></li>
+                            
+                                <li class="normaltab" id="120311">移动数据流量专属可选包<b></b></li>
+                            
+                        </ul>
+                        <div class="clr"></div>
+                    </div>
+                    <span class="first"><img src="/images/dynamic/rate/btn_left.gif" onclick="BtnMoveLeft(event,'tabdata','tabDataout','setData','imgLeftData','imgRightData')" id="imgLeftData" /></span>
+                    <span class="next"><img src="/images/dynamic/rate/btn_right.gif" onclick="BtnMoveRight(event,'tabdata','tabDataout','setData','imgLeftData','imgRightData')"  id="imgRightData" /></span>
+                    <dl id="contentdata">
+                        
+                        <dt class="dis">
+                            
+                            <table>
+                                  <tr>
+                                    <th class="wid120">可选包名称</th>
+                                    <th class="wid120">可选包月使用费</th>
+                                    <th>可选包包含</th>
+                                    <th class="wid120">超出部分资费</th>
+                                    <th class="wid75">详情及办理</th>
+                                  </tr>
+                                    <tr><td><a href='opt_pack_details.jsp?optPackId=154003' target='_blank'>5元套餐</a></td>
+<td>5元</td>
+<td>30M国内移动数据流量  </td>
+<td rowspan='7'>1元/MB</td>
+<td><a onclick='openPackDetail(154003)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154042' target='_blank'>10元套餐</a></td>
+<td>10元</td>
+<td>70M国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154042)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154081' target='_blank'>20元套餐</a></td>
+<td>20元</td>
+<td>150M国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154081)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154120' target='_blank'>30元套餐</a></td>
+<td>30元</td>
+<td>280M国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154120)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154159' target='_blank'>50元套餐</a></td>
+<td>50元</td>
+<td>500M国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154159)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154198' target='_blank'>100元套餐</a></td>
+<td>100元</td>
+<td>2G国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154198)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154237' target='_blank'>200元套餐</a></td>
+<td>200元</td>
+<td>5G国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154237)' href='#' class='btn'>资费详情</a></td></tr>
+    
+                            </table>
+                            
+                        </dt>                       
+                        
+                        <dt class="undis">
+                            
+                            <table>
+                                  <tr>
+                                    <th class="wid120">可选包名称</th>
+                                    <th class="wid120">可选包月使用费</th>
+                                    <th>可选包包含</th>
+                                    <th class="wid120">超出部分资费</th>
+                                    <th class="wid75">详情及办理</th>
+                                  </tr>
+                                    <tr><td><a href='opt_pack_details.jsp?optPackId=154276' target='_blank'>3元可选包</a></td>
+<td>3元</td>
+<td>10M国内移动数据流量  </td>
+<td rowspan='8'>1元/MB</td>
+<td><a onclick='openPackDetail(154276)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154315' target='_blank'>5元可选包</a></td>
+<td>5元</td>
+<td>30M国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154315)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154354' target='_blank'>10元可选包</a></td>
+<td>10元</td>
+<td>70M国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154354)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154393' target='_blank'>20元可选包</a></td>
+<td>20元</td>
+<td>150M国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154393)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154432' target='_blank'>30元可选包</a></td>
+<td>30元</td>
+<td>280M国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154432)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154471' target='_blank'>50元可选包</a></td>
+<td>50元</td>
+<td>500M国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154471)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154510' target='_blank'>100元可选包</a></td>
+<td>100元</td>
+<td>2G国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154510)' href='#' class='btn'>资费详情</a></td></tr>
+<tr><td><a href='opt_pack_details.jsp?optPackId=154549' target='_blank'>200元可选包</a></td>
+<td>200元</td>
+<td>5G国内移动数据流量  </td>
+<td><a onclick='openPackDetail(154549)' href='#' class='btn'>资费详情</a></td></tr>
+    
+                            </table>
+                            
+                        </dt>                       
+                            
+                    </dl>
+                    </div>
+                </div>
+            </div>
+        
+        <div class="clr"></div>
+        
+                
+
+            
+            
+        </div>
+        <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+</div>
+<div class="clr"></div>
+<div id="tail"></div>
+<script LANGUAGE="JavaScript" src="https://www.10086.cn/images/js/portal/sdc_home.js"></script>
+
+<script type="text/javascript">
+
+    HoverTab("tabSound","contentSound","tabSoundout","setSound","imgLeftSound","imgRightSound");
+
+
+    HoverTab("tabdata","contentdata","tabDataout","setData","imgLeftData","imgRightData");
+
+
+</script>
+</body>
+</html>
+
+
+
